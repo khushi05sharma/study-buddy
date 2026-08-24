@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import DocumentModel from "../models/Document";
 
-export const CreateDocument = async (req: Request, res: Response) => {
+export const createDocument = async (req: Request, res: Response) => {
   try {
     const { title, content } = req.body;
 
