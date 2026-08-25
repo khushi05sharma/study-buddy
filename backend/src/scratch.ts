@@ -9,8 +9,8 @@ entirely, it runs after every render.
 `;
 
 const result = chunkText(sampleText, {
-  chunkSize: 100,
-  chunkOverlap: 20,
+  chunkSize: 150,
+  chunkOverlap: 30,
 });
 
 console.log(JSON.stringify(result, null, 2));
