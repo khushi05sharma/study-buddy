@@ -3,8 +3,13 @@ import { genAI } from "../config/gemini";
 
 // calling the getGenerativeModel() method to get the text embedding model
 const embeddingModel = genAI.getGenerativeModel({
-  model: "text-embedding-004",
+  model: "gemini-embedding-001",
 });
+
+/**
+ * Converts a single piece of text into an embedding vector.
+ * Returns an array of numbers representing the text's meaning.
+ */
 
 export const generateEmbedding = async (text: string): Promise<number[]> => {
   try {
