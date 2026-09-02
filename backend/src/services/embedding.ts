@@ -1,15 +1,4 @@
-import { text } from "node:stream/consumers";
-import { genAI } from "../config/gemini";
-
-// calling the getGenerativeModel() method to get the text embedding model
-const embeddingModel = genAI.getGenerativeModel({
-  model: "gemini-embedding-001",
-});
-
-/**
- * Converts a single piece of text into an embedding vector.
- * Returns an array of numbers representing the text's meaning.
- */
+import { embeddingModel } from "../config/gemini";
 
 export const generateEmbedding = async (text: string): Promise<number[]> => {
   try {
