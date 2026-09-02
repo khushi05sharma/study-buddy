@@ -15,4 +15,13 @@ export const processDocument = async (
   const chunks = chunkText(content, { chunkSize: 500, chunkOverlap: 50 });
   const texts = chunks.map((c) => c.text);
   const vector = await generateEmbeddings(texts);
+
+  for (let i = 0; i < chunks.length; i++) {
+    await upsertVector(vector[i], {
+      documentId,
+      chunkText: chunks[i].text,
+      chunkIndex: chunks[i].index,
+    });
+  }
+  console.log(`Processed ${chunks.length} chunks for document ${documentId}`);
 };
