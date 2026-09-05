@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import DocumentModel from "../models/Document";
+import { processDocument } from "../services/documentProcessor";
 
 export const createDocument = async (req: Request, res: Response) => {
   try {
