@@ -11,6 +11,10 @@ export const createDocument = async (req: Request, res: Response) => {
     }
 
     const newDocument = await DocumentModel.create({ title, content });
+
+    // that's the MongoDB document ID and content -saying- Here's the ID of the document and here's its content. Process it for RAG.
+    await processDocument(newDocument._id.toString(), content);
+
     return res.status(201).json(newDocument);
   } catch (err) {
     console.error("Error creating document:", err);
