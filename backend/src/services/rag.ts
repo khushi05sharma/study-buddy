@@ -12,6 +12,8 @@ export const answerQuestion = async (question: string): Promise<string> => {
     return "I don't have any study material to answer that yet.";
   }
 
+  // build the context block from retrieved chunks
+  // m = current match , i = current index
   const contextText = matches
     .map((m, i) => `Chunk ${i + 1}:\n${m.payload.chunkText}`)
     .join("\n\n");
