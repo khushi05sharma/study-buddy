@@ -3,3 +3,8 @@
 import { Router } from "express";
 import { askQuestion } from "../controllers/askController";
 
+const router = Router();
+
+router.post("/", askQuestion);
+
+export default router;
