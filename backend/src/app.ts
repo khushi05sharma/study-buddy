@@ -1,8 +1,9 @@
-import express, { Application, Request, Response } from "express";
+import express from "express";
 import cors from "cors";
 import documentRoutes from "./routes/documentRoutes";
+import askRoutes from "./routes/askRoutes";
 
-const app: Application = express();
+const app = express();
 
 // middleware
 app.use(cors());
@@ -10,10 +11,11 @@ app.use(express.json());
 
 // Temporary health-check route — confirms the server is alive
 
-app.get("/api/health", (req: Request, res: Response) => {
-  res.json({ status: "ok", message: "study-buddy backend is running fine!!" });
+app.get("/api/health", (req, res) => {
+  res.json({ message: "Study Buddy API is running" });
 });
 
 app.use("/api/documents", documentRoutes);
+app.use("/api/ask", askRoutes);
 
 export default app;
