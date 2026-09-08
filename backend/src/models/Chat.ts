@@ -5,3 +5,10 @@ interface Source {
   chunkText: string;
   score: number;
 }
+
+export interface IChat extends MongooseDocument {
+  question: string;
+  answer: string;
+  sources: Source[];
+  createdAt: Date;
+}
