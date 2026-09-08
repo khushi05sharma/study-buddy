@@ -15,5 +15,5 @@ export const embeddingModel = genAI.getGenerativeModel({
 
 // Used in rag.ts for generating the final answer
 export const chatModel = genAI.getGenerativeModel({
-  model: "gemini-1.5-flash",
+  model: "gemini-3.6-flash",
 });
