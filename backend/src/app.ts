@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import documentRoutes from "./routes/documentRoutes";
 import askRoutes from "./routes/askRoutes";
+import chatRoutes from "./routes/chatRoutes";
 
 const app = express();
 
@@ -17,5 +18,6 @@ app.get("/api/health", (req, res) => {
 
 app.use("/api/documents", documentRoutes);
 app.use("/api/ask", askRoutes);
+app.use("api/chats", chatRoutes);
 
 export default app;
