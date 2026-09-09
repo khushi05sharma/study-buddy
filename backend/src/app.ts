@@ -18,6 +18,6 @@ app.get("/api/health", (req, res) => {
 
 app.use("/api/documents", documentRoutes);
 app.use("/api/ask", askRoutes);
-app.use("api/chats", chatRoutes);
+app.use("/api/chats", chatRoutes);
 
 export default app;

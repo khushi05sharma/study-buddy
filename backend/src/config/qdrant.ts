@@ -1,3 +1,6 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import { QdrantClient } from "@qdrant/js-client-rest";
 
 const url = process.env.QDRANT_URL;
