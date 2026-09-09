@@ -2,6 +2,15 @@ import { generateEmbedding } from "./embedding";
 import { searchSimilarChunks } from "./vectorStore";
 import { chatModel } from "../config/gemini";
 
+interface RagResult {
+  answer: string;
+  sources: {
+    documentId: string;
+    chunkText: string;
+    score: number;
+  }[];
+}
+
 export const answerQuestion = async (question: string): Promise<string> => {
   // turn the question into a vector
   const queryvector = await generateEmbedding(question);
