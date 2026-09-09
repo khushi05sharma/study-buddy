@@ -3,3 +3,13 @@
 import { Request, Response } from "express";
 import ChatModel from "../models/Chat";
 
+export const getChatHistory = async (req: Request, res: Response) => {
+  try {
+    const chats = await ChatModel.find().sort({ createdAt: -1 }).limit(50);
+
+    return res.status(200).json(chats);
+  } catch (err) {
+    console.error("Error fetching chat history:", err);
+    return res.status(500).json({ error: "Failed to fetch chat history" });
+  }
+};
