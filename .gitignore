@@ -7,13 +7,30 @@ node_modules/
 
 # Build output
 dist/
+dist-ssr/
 
 # Logs
+logs/
 *.log
 
 # OS files
 .DS_Store
 Thumbs.db
 
-#document
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Other IDE files
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Local configuration
+*.local
+
+# Project files / personal notes
 cheatSheet
