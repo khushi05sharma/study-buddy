@@ -5,3 +5,8 @@ export interface StudyDocument {
   createdAt: string;
 }
 
+export interface Source {
+  documentId: string;
+  chunkText: string;
+  score: number;
+}
