@@ -11,3 +11,9 @@ export const askQuestion = async (question: string): Promise<AskResponse> => {
 
   return response.data;
 };
+
+export const getChatHistory = async (): Promise<Chat[]> => {
+  const response = await apiClient.get<Chat[]>("/chats");
+
+  return response.data;
+};
