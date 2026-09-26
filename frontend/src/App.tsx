@@ -17,5 +17,20 @@ function App() {
     loadDocuments();
   }, []);
 
-  
+  return (
+    <div>
+      <h1>Study Buddy</h1>
+
+      <h2>Documents</h2>
+
+      {documents.map((document) => (
+        <div key={document._id}>
+          <h3>{document.title}</h3>
+          <p>{document.content}</p>
+        </div>
+      ))}
+    </div>
+  );
 }
+
+export default App;
