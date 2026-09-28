@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { createDocument } from "../api/documents";
 
 interface DocumentUploadProps {
@@ -11,4 +11,16 @@ function DocumentUpload({ onUploadSuccess }: DocumentUploadProps) {
   const [content, SetContent] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!title.trim() || !content.trim()) {
+      setError("Both title and content are required.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setError(null);
+  };
 }
