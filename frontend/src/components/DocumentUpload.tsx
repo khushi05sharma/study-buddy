@@ -22,5 +22,18 @@ function DocumentUpload({ onUploadSuccess }: DocumentUploadProps) {
 
     setIsSubmitting(true);
     setError(null);
+
+    try {
+      // createDocument() internally does: apiClient.post("/documents", {...})
+      await createDocument(title, content);
+      setTitle("");
+      SetContent("");
+      onUploadSuccess(); // tell App: "go refresh the list"
+    } catch (err) {
+      console.error(err);
+      setError("Failed to upload document. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 }
