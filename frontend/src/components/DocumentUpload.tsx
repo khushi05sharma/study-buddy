@@ -8,7 +8,7 @@ interface DocumentUploadProps {
 // Create a React component called DocumentUpload and receive its props
 function DocumentUpload({ onUploadSuccess }: DocumentUploadProps) {
   const [title, setTitle] = useState("");
-  const [content, SetContent] = useState("");
+  const [content, setContent] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -27,7 +27,7 @@ function DocumentUpload({ onUploadSuccess }: DocumentUploadProps) {
       // createDocument() internally does: apiClient.post("/documents", {...})
       await createDocument(title, content);
       setTitle("");
-      SetContent("");
+      setContent("");
       onUploadSuccess(); // tell App: "go refresh the list"
     } catch (err) {
       console.error(err);
@@ -36,4 +36,33 @@ function DocumentUpload({ onUploadSuccess }: DocumentUploadProps) {
       setIsSubmitting(false);
     }
   };
+
+  return (
+    <form className="card" onSubmit={handleSubmit}>
+      <h2>Add Study Notes</h2>
+      <input
+        type="text"
+        placeholder="Title (e.g. React Hooks Notes)"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        disabled={isSubmitting}
+      />
+
+      <textarea
+        placeholder="Paste your notes here..."
+        value={content}
+        onChange={(e) => setContent(e.target.value)}
+        rows={6}
+        disabled={isSubmitting}
+      />
+
+      {error && <p className="error-text">{error}</p>}
+
+      <button type="submit" disabled={isSubmitting}>
+        {isSubmitting ? "Uploading..." : "Upload"}
+      </button>
+    </form>
+  );
 }
+
+export default DocumentUpload;
