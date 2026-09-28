@@ -1,3 +1,5 @@
+//    collect study material from the user → send it to backend → tell the parent that upload succeeded.
+
 import React, { useState } from "react";
 import { createDocument } from "../api/documents";
 
