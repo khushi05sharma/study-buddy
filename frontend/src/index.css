@@ -30,8 +30,8 @@ textarea {
 
 button {
   background-color: var(--color-primary);
-  color: white;
-  border: none;
+  color: rgb(228, 27, 27);
+  border: 2px solid black;
   padding: 0.6rem 1.2rem;
   border-radius: 6px;
   cursor: pointer;
