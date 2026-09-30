@@ -15,4 +15,19 @@ function App() {
       console.error("failed to fetch documents:", err);
     }
   };
+
+  useEffect(() => {
+    fetchDocuments();
+  }, []);
+
+  return (
+    <div className="app-container">
+      <h1>📚 Study Buddy</h1>
+
+      <DocumentUpload onUploadSuccess={fetchDocuments} />
+      <DocumentList documents={documents} />
+    </div>
+  );
 }
+
+export default App;
