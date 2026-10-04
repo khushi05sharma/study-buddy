@@ -12,24 +12,23 @@ function AnswerCard({ answer, sources }: AnswerCardProps) {
       <p>{answer}</p>
 
       {sources.length > 0 && (
-        <details> // This section can be expanded/collapsed
+        <details>
+          {/* details can be expanded/collapsed — summary is the clickable heading for the "details" element */}
           <summary className="muted-text">
             View sources ({sources.length})
-          </summary> // summary is the clickable heading for the "details" element
+          </summary>
           <ul className="source-list">
-            {sources.map(
-              (
-                source,
-                i, // i = current index
-              ) => (
-                <li key={i}>
-                  <span className="muted-text">
-                    Match score: {source.score.toFixed(2)} // Keep exactly 2 digits after the decimal point.
-                  </span>
-                  <p>{source.chunkText}</p> // What piece of my notes did the RAG system use?
-                </li>
-              ),
-            )}
+            {/*i = current index*/}
+            {sources.map((source, i) => (
+              <li key={i}>
+                <span className="muted-text">
+                  {/* tofixed(2) - Keep exactly 2 digits after the decimal point. */}
+                  Match score: {source.score.toFixed(2)}
+                </span>
+                <p>{source.chunkText}</p>
+                system use?
+              </li>
+            ))}
           </ul>
         </details>
       )}
