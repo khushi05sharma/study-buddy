@@ -1,4 +1,4 @@
-import React, { useState, type FormEvent } from "react";
+import React, { useState } from "react";
 import { askQuestion } from "../api/chats";
 import type { Source } from "../types";
 
@@ -23,5 +23,17 @@ function AskPanel({ onAnswerReceived }: AskPanelProps) {
 
     setIsAsking(true);
     setError(null);
+
+    try {
+      const { answer, sources } = await askQuestion(question);
+
+      onAnswerReceived(answer, sources);
+      setQuestion("");
+    } catch (err) {
+      console.error(err);
+      setError("Failed to get an answer. Please try again.");
+    } finally {
+      setIsAsking(false);
+    }
   };
 }
