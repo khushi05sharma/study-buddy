@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState, type FormEvent } from "react";
 import { askQuestion } from "../api/chats";
 import type { Source } from "../types";
 
@@ -13,5 +13,15 @@ function AskPanel({ onAnswerReceived }: AskPanelProps) {
   const [isAsking, setIsAsking] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!question.trim()) {
+      setError("please written a question");
+      return;
+    }
+
+    setIsAsking(true);
+    setError(null);
+  };
 }
