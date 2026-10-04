@@ -36,4 +36,26 @@ function AskPanel({ onAnswerReceived }: AskPanelProps) {
       setIsAsking(false);
     }
   };
+
+  return (
+    <form className="card" onSubmit={handleSubmit}>
+      <h2>Ask Your Notes</h2>
+
+      <input
+        type="text"
+        placeholder="e.g. What is useEffect used for?"
+        value={question}
+        onChange={(e) => setQuestion(e.target.value)}
+        disabled={isAsking}
+      />
+
+      {error && <p className="error-text">{error}</p>}
+
+      <button type="submit" disabled={isAsking}>
+        {isAsking ? "Thinking..." : "Ask"}
+      </button>
+    </form>
+  );
 }
+
+export default AskPanel;
