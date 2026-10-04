@@ -8,4 +8,10 @@ interface AskPanelProps {
   onAnswerReceived: (answer: string, sources: Source[]) => void;
 }
 
-function AskPanel({ onAnswerReceived }: AskPanelProps) {}
+function AskPanel({ onAnswerReceived }: AskPanelProps) {
+  const [question, setQuestion] = useState("");
+  const [isAsking, setIsAsking] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  
+}
