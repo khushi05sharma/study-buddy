@@ -1,3 +1,4 @@
+// Ask the question and hand the result to APP
 import React, { useState } from "react";
 import { askQuestion } from "../api/chats";
 import type { Source } from "../types";
@@ -27,7 +28,7 @@ function AskPanel({ onAnswerReceived }: AskPanelProps) {
     try {
       const { answer, sources } = await askQuestion(question);
 
-      onAnswerReceived(answer, sources);
+      onAnswerReceived(answer, sources); // hand the result up to App
       setQuestion("");
     } catch (err) {
       console.error(err);
