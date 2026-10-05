@@ -5,3 +5,23 @@ import AnswerCard from "./AnswerCard";
 interface ChatHistoryProps {
   chats: Chat[];
 }
+
+function ChatHistory({ chats }: ChatHistoryProps) {
+  if (chats.length === 0) {
+    return null;
+  }
+
+  return (
+    <div className="chat-history">
+      <h2>Past Questions</h2>
+      {chats.map((chat) => (
+        <div key={chat._id} className="history-entry">
+          <p className="question-text">Q: {chat.question}</p>
+          <AnswerCard answer={chat.answer} sources={chat.sources} />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default ChatHistory;
