@@ -6,7 +6,11 @@ import type { Source } from "../types";
 interface AskPanelProps {
   // onAnswerReceived is a function that accepts two arguments:
   //answer → a string & sources → an array of Source objects : and it doesn't return anything.
-  onAnswerReceived: (answer: string, sources: Source[]) => void;
+  onAnswerReceived: (
+    question: string,
+    answer: string,
+    sources: Source[],
+  ) => void;
 }
 
 function AskPanel({ onAnswerReceived }: AskPanelProps) {
@@ -28,7 +32,7 @@ function AskPanel({ onAnswerReceived }: AskPanelProps) {
     try {
       const { answer, sources } = await askQuestion(question);
 
-      onAnswerReceived(answer, sources); // hand the result up to App
+      onAnswerReceived(question, answer, sources); // hand the result up to App
       setQuestion("");
     } catch (err) {
       console.error(err);

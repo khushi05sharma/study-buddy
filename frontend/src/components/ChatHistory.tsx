@@ -15,7 +15,7 @@ function ChatHistory({ chats }: ChatHistoryProps) {
     <div className="chat-history">
       <h2>Past Questions</h2>
       {chats.map((chat) => (
-        <div key={chat._id} className="history-entry">
+        <div key={chat._id} className="history-entry">  {/* Give each chat a unique key*/}
           <p className="question-text">Q: {chat.question}</p>
           <AnswerCard answer={chat.answer} sources={chat.sources} />
         </div>
