@@ -91,3 +91,16 @@ button:disabled {
 details summary {
   cursor: pointer;
 }
+
+.chat-history {
+  margin-top: 2rem;
+}
+
+.history-entry {
+  margin-bottom: 1rem;
+}
+
+.question-text {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
